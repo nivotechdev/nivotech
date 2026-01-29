@@ -39,7 +39,7 @@ const FeatureCard = ({ icon: Icon, title, description, index }: { icon: React.El
     whileInView={{ opacity: 1, y: 0, scale: 1 }}
     viewport={{ once: true, amount: 0.3 }}
     transition={{ duration: 0.8, delay: 0.2 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-    className="bg-card border border-primary/10 rounded-xl p-6 shadow-soft"
+    className="bg-card border border-primary/10 rounded-xl p-6 shadow-soft h-full"
   >
     <div className="flex items-center gap-4 mb-4">
       <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
@@ -70,16 +70,29 @@ export default function FeaturesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <FeatureCard
-              key={feature.title}
-              icon={feature.Icon}
-              title={feature.title}
-              description={feature.description}
-              index={index}
-            />
-          ))}
+        <div className="flex flex-col items-center gap-8">
+          <div className="grid w-full grid-cols-1 md:grid-cols-3 gap-8">
+            {features.slice(0, 3).map((feature, index) => (
+              <FeatureCard
+                key={feature.title}
+                icon={feature.Icon}
+                title={feature.title}
+                description={feature.description}
+                index={index}
+              />
+            ))}
+          </div>
+          <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-8 md:w-2/3">
+            {features.slice(3, 5).map((feature, index) => (
+              <FeatureCard
+                key={feature.title}
+                icon={feature.Icon}
+                title={feature.title}
+                description={feature.description}
+                index={index + 3}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
