@@ -59,7 +59,7 @@ export default function FeaturesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, ease: "ease-in-out" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
           className="text-center mb-16"
         >
           <SectionTitle>
