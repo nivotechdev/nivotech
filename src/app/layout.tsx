@@ -14,6 +14,17 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'NivoTech | Elevando seu negócio ao próximo nível digital',
   description: 'Agência de criação de sites focada em alta conversão e design premium.',
+  icons: {
+    icon: {
+      url: "/favicons/favicon-16x16.png",
+      type: "image/png",
+      sizes: "16x16",
+    },
+  },
+  themeColor: "#ffffff",
+  other: {
+    "msapplication-TileColor": "#ffffff",
+  },
 };
 
 export default function RootLayout({
