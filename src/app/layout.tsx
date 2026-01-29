@@ -15,7 +15,8 @@ export const metadata: Metadata = {
   title: 'NivoTech | Elevando seu negócio ao próximo nível digital',
   description: 'Agência de criação de sites focada em alta conversão e design premium.',
   icons: {
-    icon: 'https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/logos/Whisk_d5562f27ee2f63f80ef40b35a1d655ebdr.png',
+    icon: 'https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/logos/Whisk_d5562f27ee2f63f80ef40b35a1d655ebdr.png?v=2',
+    apple: 'https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/logos/Whisk_d5562f27ee2f63f80ef40b35a1d655ebdr.png?v=2',
   },
 };
 
