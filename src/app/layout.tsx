@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: 'Agência de criação de sites focada em alta conversão e design premium.',
   icons: {
     icon: {
-      url: "https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/logos/favicon-16x16.png",
+      url: "https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/logos/favicon-16x16%20(1).png",
       type: "image/png",
       sizes: "16x16",
     },
