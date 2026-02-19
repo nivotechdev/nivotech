@@ -25,14 +25,14 @@ const pillars = [
 
 const PillarCard = ({ icon: Icon, title, description, index }: (typeof pillars)[0] & { index: number }) => {
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0, 
       transition: { 
         duration: 0.8, 
         delay: index * 0.1,
-        ease: [0.16, 1, 0.3, 1] 
+        ease: [0.22, 1, 0.36, 1] 
       } 
     },
   };
@@ -42,13 +42,16 @@ const PillarCard = ({ icon: Icon, title, description, index }: (typeof pillars)[
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      whileHover={{ y: -8 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      viewport={{ once: true, amount: 0.1 }}
+      whileHover={{ 
+        scale: 1.02,
+        transition: { duration: 0.4, ease: "easeOut" }
+      }}
+      style={{ willChange: 'transform, opacity' }}
       className="group bg-card p-8 rounded-3xl shadow-apple-soft hover:shadow-apple-hover transition-all duration-300 ease-in-out text-center border border-primary/10 hover:border-primary/30"
     >
       <div className="mb-6 inline-block">
-        <Icon className="w-10 h-10 text-primary mx-auto transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:-rotate-3" />
+        <Icon className="w-10 h-10 text-primary mx-auto transition-transform duration-500 ease-out group-hover:scale-110" />
       </div>
       
       <h3 className="text-xl font-semibold text-foreground mb-3 tracking-tight">
@@ -70,7 +73,7 @@ export default function PerformanceCostSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16 md:mb-20 max-w-4xl mx-auto"
         >
           <SectionTitle>Engenharia invisível. Resultados reais.</SectionTitle>
