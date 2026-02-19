@@ -36,26 +36,23 @@ const pillars = [
 const PillarCard = ({ icon: Icon, title, description, index, number, label, className }: (typeof pillars)[0] & { index: number }) => {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ 
-        duration: 0.5, 
-        ease: "easeOut",
+        duration: 0.4, 
+        ease: [0.22, 1, 0.36, 1],
         delay: index * 0.1
       }}
       className={cn(
-        "relative bg-[#0A0A0A] p-10 rounded-xl border border-white/10 flex flex-col justify-between overflow-hidden",
+        "relative bg-card p-10 rounded-xl border border-primary/10 flex flex-col justify-between overflow-hidden shadow-soft group",
         "before:absolute before:inset-0 before:bg-gradient-to-br before:from-primary/5 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity",
         className
       )}
     >
-      {/* Subtle Border Glow */}
-      <div className="absolute inset-0 border border-primary/20 rounded-xl pointer-events-none" />
-
       <div className="relative z-10">
         <div className="mb-8 inline-block">
-          <div className="p-4 bg-primary/10 rounded-lg border border-primary/30">
+          <div className="p-4 bg-primary/10 rounded-lg border border-primary/20 transition-colors group-hover:bg-primary/20">
             <Icon className="w-8 h-8 text-primary" />
           </div>
         </div>
@@ -64,20 +61,20 @@ const PillarCard = ({ icon: Icon, title, description, index, number, label, clas
             <span className="font-code text-[10px] font-black text-primary tracking-[0.3em] uppercase">
                 {label}
             </span>
-            <h3 className="text-4xl md:text-5xl font-black text-white tracking-tighter leading-none">
+            <h3 className="text-4xl md:text-5xl font-black text-foreground tracking-tighter leading-none">
               {title}
             </h3>
         </div>
       </div>
 
       <div className="relative z-10 mt-8">
-        <p className="text-[#94A3B8] leading-relaxed text-base md:text-lg max-w-xl">
+        <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-xl">
           {description}
         </p>
       </div>
 
       {/* Watermark Number */}
-      <span className="absolute bottom-6 right-8 font-code text-8xl font-black text-white/[0.02] select-none pointer-events-none">
+      <span className="absolute bottom-6 right-8 font-code text-8xl font-black text-primary/[0.04] select-none pointer-events-none">
         {number}
       </span>
     </motion.div>
@@ -87,9 +84,9 @@ const PillarCard = ({ icon: Icon, title, description, index, number, label, clas
 
 export default function PerformanceCostSection() {
   return (
-    <section id="infra" className="py-24 md:py-32 bg-[#050505] relative overflow-hidden">
+    <section id="infra" className="py-24 md:py-32 bg-background relative overflow-hidden">
       {/* Atmospheric Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
 
       {/* Static Orbs for depth */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
@@ -106,11 +103,11 @@ export default function PerformanceCostSection() {
             <span className="font-code text-xs font-black text-primary tracking-[0.4em] uppercase mb-6 block">
               Protocolo de Engenharia
             </span>
-            <h2 className="font-headline text-5xl md:text-7xl font-black tracking-tightest text-white leading-none mb-8">
+            <h2 className="font-headline text-5xl md:text-7xl font-black tracking-tightest text-foreground leading-none mb-8">
               Engenharia Invisível.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Resultados Reais.</span>
+              <span className="text-primary">Resultados Reais.</span>
             </h2>
-            <p className="text-lg md:text-xl text-[#94A3B8] leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               Nossa infraestrutura opera com precisão absoluta nos bastidores para que sua única métrica seja o crescimento exponencial.
             </p>
           </motion.div>
