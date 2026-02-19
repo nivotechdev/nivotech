@@ -20,8 +20,8 @@ export default function Home() {
         <HeroSection />
         <ProblemSection />
         <FeaturesSection />
-        <PerformanceCostSection />
         <ShowcaseSection />
+        <PerformanceCostSection />
         <FaqSection />
         <CtaSection />
       </main>
