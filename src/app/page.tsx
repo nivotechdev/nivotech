@@ -8,8 +8,8 @@ import PerformanceCostSection from '@/components/sections/performance-cost';
 import ShowcaseSection from '@/components/sections/showcase';
 import FaqSection from '@/components/sections/faq';
 import CtaSection from '@/components/sections/cta';
-import Footer from '@/components/layout/footer';
 import { ScrollProgress } from '@/components/ui/scroll-progress';
+import Footer from '@/components/layout/footer';
 
 export default function Home() {
   return (
