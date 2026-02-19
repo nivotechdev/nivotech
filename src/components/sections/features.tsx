@@ -1,9 +1,11 @@
+
 "use client";
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SectionTitle } from '../ui/section-title';
 import { Maximize, Zap, Code, FileText, BarChart2 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const features = [
   {
@@ -35,17 +37,26 @@ const features = [
 
 const FeatureCard = ({ icon: Icon, title, description, index }: { icon: React.ElementType, title: string, description: string, index: number }) => (
   <motion.div
-    initial={{ opacity: 0, y: 50, scale: 0.95 }}
-    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-    viewport={{ once: true, amount: 0.3 }}
-    transition={{ duration: 0.8, delay: 0.2 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-    className="bg-card border border-primary/10 rounded-xl p-6 shadow-soft h-full"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+    transition={{ 
+      type: "spring", 
+      stiffness: 200, 
+      damping: 25, 
+      delay: index * 0.05 
+    }}
+    style={{ transform: 'translateZ(0)' }}
+    className={cn(
+      "bg-card border border-primary/10 rounded-xl p-6 shadow-soft h-full",
+      "will-change-transform transition-colors duration-300 hover:border-primary/30"
+    )}
   >
     <div className="flex items-center gap-4 mb-4">
-      <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
+      <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center shrink-0">
         <Icon className="w-6 h-6 text-primary" />
       </div>
-      <h3 className="text-lg font-bold text-foreground">{title}</h3>
+      <h3 className="text-lg font-bold text-foreground leading-tight">{title}</h3>
     </div>
     <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
   </motion.div>
@@ -58,8 +69,8 @@ export default function FeaturesSection() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+          viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+          transition={{ type: "spring", stiffness: 200, damping: 25 }}
           className="text-center mb-16"
         >
           <SectionTitle>
