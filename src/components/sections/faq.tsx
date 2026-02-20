@@ -82,7 +82,7 @@ export default function FaqSection() {
                   value={`item-${index}`} 
                   className={cn(
                     "group border-none rounded-[1.5rem] overflow-hidden transition-all duration-300",
-                    "bg-neutral-900/40 border border-white/5 hover:border-primary/20 shadow-soft"
+                    "bg-secondary border border-primary/10 hover:border-primary/30 shadow-soft"
                   )}
                 >
                   <AccordionTrigger className="flex items-center gap-4 md:gap-6 p-6 md:p-8 hover:no-underline text-left transition-all [&[data-state=open]]:bg-primary/5">
