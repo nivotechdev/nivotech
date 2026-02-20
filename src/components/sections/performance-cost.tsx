@@ -58,7 +58,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
     viewport={{ once: true, margin: "-50px" }}
     transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
     className={cn(
-      "group relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-neutral-900/40 transition-all duration-700 hover:border-primary/40",
+      "group relative overflow-hidden rounded-[2.5rem] border border-primary/10 bg-neutral-900/40 transition-all duration-700 hover:border-primary/50",
       project.span,
       project.mobileHeight,
       "flex flex-col justify-end"
@@ -69,11 +69,11 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
         src={project.image}
         alt={project.title}
         fill
-        className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
+        className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
         data-ai-hint={project.hint}
       />
-      {/* Cinematic Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90 group-hover:opacity-40 transition-opacity duration-700" />
+      {/* Cinematic Purple Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-primary/5 to-transparent opacity-90 group-hover:opacity-50 transition-opacity duration-700" />
     </div>
 
     <div className="relative z-10 p-8 md:p-12">
@@ -86,7 +86,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
             {project.title}
           </h3>
         </div>
-        <div className="shrink-0 w-14 h-14 rounded-full bg-white/10 flex items-center justify-center opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 border border-white/20 backdrop-blur-md">
+        <div className="shrink-0 w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 border border-primary/30 backdrop-blur-md">
           <ArrowUpRight className="w-7 h-7 text-white" />
         </div>
       </div>
@@ -97,8 +97,8 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
 export default function PerformanceCostSection() {
   return (
     <section id="portfolio" className="py-24 md:py-40 bg-background relative overflow-hidden">
-      {/* Subtle Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] pointer-events-none" />
+      {/* Purple Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="mb-24 max-w-5xl">
