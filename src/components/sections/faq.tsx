@@ -14,11 +14,11 @@ const faqItems = [
   },
   {
     question: "Quanto tempo leva para meu site ficar pronto?",
-    answer: "Um projeto de alta performance geralmente leva de 4 a 8 semanas, dependendo da sua complexidade. Este prazo inclui etapas cruciais como análise estratégica, design de interface (UI/UX), desenvolvimento, testes rigorosos e otimizações de performance."
+    answer: "Um projeto de alta performance geralmente leva de 4 a 8 semanas, dependendo da sua complexidade. Este prazo inclui etapas cruciais como análise estratégica, design de interface (UI/UX) (UI/UX), desenvolvimento, testes rigorosos e otimizações de performance."
   },
   {
     question: "O que é 'Engenharia de Conversão'?",
-    answer: "É a nossa metodologia que combina design psicológico, copywriting, performance técnica (velocidade e responsividade) e análise de dados para transformar o máximo de visitantes em clientes. Não focamos em achismos, mas em uma arquitetura projetada para gerar resultados."
+    answer: "É a nossa metodologia que combina design psicológico, copywriting, performance técnica (velocidade e responsividade) (velocidade e responsividade) e análise de dados para transformar o máximo de visitantes em clientes. Não focamos em achismos, mas em uma arquitetura projetada para gerar resultados."
   },
   {
     question: "Vocês oferecem manutenção após o lançamento?",
@@ -81,8 +81,8 @@ export default function FaqSection() {
                   key={index} 
                   value={`item-${index}`} 
                   className={cn(
-                    "group border-none rounded-[1.5rem] overflow-hidden transition-all duration-300",
-                    "bg-secondary border border-primary/10 hover:border-primary/30 shadow-soft"
+                    "group border border-primary/20 rounded-[1.5rem] overflow-hidden transition-all duration-300",
+                    "bg-secondary hover:border-primary/50 shadow-soft"
                   )}
                 >
                   <AccordionTrigger className="flex items-center gap-4 md:gap-6 p-6 md:p-8 hover:no-underline text-left transition-all [&[data-state=open]]:bg-primary/5">
