@@ -1,10 +1,11 @@
+
 "use client";
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from '@/lib/utils';
-import { HelpCircle, ChevronRight } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
 
 const faqItems = [
   {
@@ -27,39 +28,37 @@ const faqItems = [
 
 export default function FaqSection() {
   return (
-    <section id="faq" className="relative py-24 md:py-40 bg-background overflow-hidden">
-      {/* Background Tech Elements */}
+    <section id="faq" className="relative py-20 md:py-40 bg-background overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-primary/5 rounded-full blur-[80px] md:blur-[120px] pointer-events-none" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24 items-start">
           
-          {/* Column 1: Typography & Meta */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 sticky top-32"
+            className="lg:col-span-5 lg:sticky lg:top-32"
           >
-            <div className="mb-8 inline-flex items-center gap-3">
-              <div className="w-12 h-[1px] bg-primary/50" />
-              <span className="font-code text-[11px] font-black text-primary tracking-[0.5em] uppercase">
+            <div className="mb-6 md:mb-8 inline-flex items-center gap-3">
+              <div className="w-8 md:w-12 h-[1px] bg-primary/50" />
+              <span className="font-code text-[10px] md:text-[11px] font-black text-primary tracking-[0.3em] md:tracking-[0.5em] uppercase">
                 Protocolo FAQ
               </span>
             </div>
             
-            <h2 className="text-5xl md:text-7xl font-black tracking-tightest leading-[0.9] text-foreground mb-8">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tightest leading-[1.1] md:leading-[0.9] text-foreground mb-6 md:mb-8">
               Eliminando a <br />
               <span className="text-primary">Incerteza.</span>
             </h2>
             
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-md">
               A transparência é o código base da nossa engenharia. Abaixo, decodificamos as dúvidas mais comuns sobre o processo NivoTech.
             </p>
 
-            <div className="mt-12 p-6 rounded-2xl border border-primary/10 bg-primary/5 backdrop-blur-sm hidden lg:block">
+            <div className="mt-8 md:mt-12 p-6 rounded-2xl border border-primary/10 bg-primary/5 backdrop-blur-sm hidden lg:block">
               <div className="flex items-center gap-4 text-primary">
                 <HelpCircle className="w-6 h-6" />
                 <span className="font-bold">Ainda com dúvidas?</span>
@@ -70,36 +69,35 @@ export default function FaqSection() {
             </div>
           </motion.div>
 
-          {/* Column 2: The Terminal Accordion */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7"
+            className="lg:col-span-7 w-full"
           >
-            <Accordion type="single" collapsible className="w-full space-y-6">
+            <Accordion type="single" collapsible className="w-full space-y-4 md:space-y-6">
               {faqItems.map((item, index) => (
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`} 
                   className={cn(
-                    "group border-none rounded-[2rem] overflow-hidden transition-all duration-500",
+                    "group border-none rounded-[1.5rem] md:rounded-[2rem] overflow-hidden transition-all duration-500",
                     "bg-neutral-900/40 border border-white/5 hover:border-primary/30 shadow-soft"
                   )}
                 >
-                  <AccordionTrigger className="flex items-center gap-6 p-8 hover:no-underline text-left transition-all [&[data-state=open]]:bg-primary/5">
-                    <div className="shrink-0 w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center bg-background group-data-[state=open]:bg-primary group-data-[state=open]:border-primary transition-all duration-500">
-                      <span className="text-xs font-black text-primary group-data-[state=open]:text-white">
+                  <AccordionTrigger className="flex items-center gap-4 md:gap-6 p-6 md:p-8 hover:no-underline text-left transition-all [&[data-state=open]]:bg-primary/5">
+                    <div className="shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center bg-background group-data-[state=open]:bg-primary group-data-[state=open]:border-primary transition-all duration-500">
+                      <span className="text-[10px] md:text-xs font-black text-primary group-data-[state=open]:text-white">
                         0{index + 1}
                       </span>
                     </div>
-                    <span className="text-lg md:text-xl font-black text-foreground group-data-[state=open]:text-primary transition-colors">
+                    <span className="text-base md:text-xl font-black text-foreground group-data-[state=open]:text-primary transition-colors">
                       {item.question}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="p-8 pt-0 bg-primary/5 text-muted-foreground text-lg leading-relaxed border-t border-primary/10 animate-in fade-in slide-in-from-top-4 duration-500">
-                    <div className="pt-6 pl-16">
+                  <AccordionContent className="p-6 md:p-8 pt-0 bg-primary/5 text-muted-foreground text-sm md:text-lg leading-relaxed border-t border-primary/10 animate-in fade-in slide-in-from-top-4 duration-500">
+                    <div className="pt-4 md:pt-6 pl-12 md:pl-16">
                       {item.answer}
                     </div>
                   </AccordionContent>

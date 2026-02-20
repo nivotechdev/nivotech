@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useRef } from 'react';
@@ -34,7 +35,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" ref={ref} className="relative h-screen w-full flex items-center justify-center md:justify-start text-center md:text-left overflow-hidden bg-background">
+    <section id="hero" ref={ref} className="relative min-h-[90vh] md:h-screen w-full flex items-center justify-center md:justify-start text-center md:text-left overflow-hidden bg-background pt-20 md:pt-0">
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -46,8 +47,9 @@ export default function HeroSection() {
           className="absolute top-0 left-0 w-full h-full object-cover"
           src="https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/Imagens/Animate_this_minimalist_202601232110_qwf0n.mp4"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-transparent z-10" />
-        <div className="absolute inset-0 bg-background/30 z-10 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent z-10 hidden md:block" />
+        <div className="absolute inset-0 bg-background/60 md:hidden z-10" />
+        <div className="absolute inset-0 bg-background/30 z-10 backdrop-blur-[2px] md:backdrop-blur-sm" />
       </div>
 
       <motion.div
@@ -58,7 +60,7 @@ export default function HeroSection() {
       >
         <motion.h1
           variants={childVariants}
-          className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tightest leading-none text-foreground"
+          className="font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tightest leading-[1.1] md:leading-none text-foreground"
         >
           Engenharia Digital
           <br />
@@ -66,15 +68,15 @@ export default function HeroSection() {
         </motion.h1>
         <motion.p
           variants={childVariants}
-          className="mt-6 max-w-xl text-lg md:text-xl text-muted-foreground leading-relaxed mx-auto md:mx-0"
+          className="mt-6 max-w-xl text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed mx-auto md:mx-0"
         >
           Criamos ecossistemas digitais de alta performance que cativam, convertem e impulsionam o crescimento do seu negócio.
         </motion.p>
         <motion.div
           variants={childVariants}
-          className="mt-10"
+          className="mt-8 md:mt-10"
         >
-          <Button asChild size="lg" className="h-12 rounded-xl text-lg font-semibold shadow-lg shadow-primary/20 transition-all duration-300 hover:shadow-primary/40 hover:scale-105">
+          <Button asChild size="lg" className="h-12 md:h-14 px-8 rounded-xl text-base md:text-lg font-bold shadow-lg shadow-primary/20 transition-all duration-300 hover:shadow-primary/40 hover:scale-105 active:scale-95">
             <Link href="#contact">Quero um orçamento</Link>
           </Button>
         </motion.div>

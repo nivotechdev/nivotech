@@ -15,7 +15,7 @@ const projects = [
     image: PlaceHolderImages.find(img => img.id === 'portfolio-fintech')?.imageUrl || "https://picsum.photos/seed/fintech/1200/800",
     hint: "modern fintech",
     span: "md:col-span-8 md:row-span-2",
-    mobileHeight: "min-h-[450px]",
+    mobileHeight: "min-h-[350px] md:min-h-[450px]",
   },
   {
     title: "Luxe Estate",
@@ -39,7 +39,7 @@ const projects = [
     image: PlaceHolderImages.find(img => img.id === 'portfolio-shop')?.imageUrl || "https://picsum.photos/seed/shop/800/600",
     hint: "modern shop",
     span: "md:col-span-6 md:row-span-1",
-    mobileHeight: "min-h-[320px]",
+    mobileHeight: "min-h-[300px] md:min-h-[320px]",
   },
   {
     title: "AI Analytics",
@@ -47,7 +47,7 @@ const projects = [
     image: PlaceHolderImages.find(img => img.id === 'portfolio-ai')?.imageUrl || "https://picsum.photos/seed/ai/800/600",
     hint: "ai interface",
     span: "md:col-span-6 md:row-span-1",
-    mobileHeight: "min-h-[320px]",
+    mobileHeight: "min-h-[300px] md:min-h-[320px]",
   }
 ];
 
@@ -58,7 +58,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
     viewport={{ once: true, margin: "-50px" }}
     transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
     className={cn(
-      "group relative overflow-hidden rounded-[2.5rem] border border-primary/10 bg-neutral-900/40 transition-all duration-700 hover:border-primary/50",
+      "group relative overflow-hidden rounded-[1.5rem] sm:rounded-[2.5rem] border border-primary/10 bg-neutral-900/40 transition-all duration-700 hover:border-primary/50",
       project.span,
       project.mobileHeight,
       "flex flex-col justify-end"
@@ -69,25 +69,24 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
         src={project.image}
         alt={project.title}
         fill
-        className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
+        className="object-cover opacity-60 sm:opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
         data-ai-hint={project.hint}
       />
-      {/* Cinematic Purple Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-primary/5 to-transparent opacity-90 group-hover:opacity-50 transition-opacity duration-700" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-primary/5 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-700" />
     </div>
 
-    <div className="relative z-10 p-8 md:p-12">
-      <div className="flex items-end justify-between gap-6">
-        <div className="space-y-2">
-          <span className="font-code text-[10px] font-black tracking-[0.3em] text-primary uppercase block opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-700">
+    <div className="relative z-10 p-6 sm:p-12">
+      <div className="flex items-end justify-between gap-4 sm:gap-6">
+        <div className="space-y-1 sm:space-y-2">
+          <span className="font-code text-[8px] sm:text-[10px] font-black tracking-[0.2em] sm:tracking-[0.3em] text-primary uppercase block opacity-80 sm:opacity-0 sm:-translate-x-4 sm:group-hover:opacity-100 sm:group-hover:translate-x-0 transition-all duration-700">
             {project.category}
           </span>
-          <h3 className="text-3xl md:text-5xl font-black text-white leading-none tracking-tightest">
+          <h3 className="text-xl sm:text-3xl md:text-5xl font-black text-white leading-none tracking-tightest">
             {project.title}
           </h3>
         </div>
-        <div className="shrink-0 w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 border border-primary/30 backdrop-blur-md">
-          <ArrowUpRight className="w-7 h-7 text-white" />
+        <div className="shrink-0 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-primary/20 flex items-center justify-center sm:opacity-0 sm:scale-50 sm:group-hover:opacity-100 sm:group-hover:scale-100 transition-all duration-500 border border-primary/30 backdrop-blur-md">
+          <ArrowUpRight className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
         </div>
       </div>
     </div>
@@ -96,32 +95,31 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
 
 export default function PerformanceCostSection() {
   return (
-    <section id="portfolio" className="py-24 md:py-40 bg-background relative overflow-hidden">
-      {/* Purple Grid Pattern Overlay */}
+    <section id="portfolio" className="py-20 md:py-40 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="mb-24 max-w-5xl">
+        <div className="mb-12 md:mb-24 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="font-code text-[11px] font-black text-primary tracking-[0.5em] uppercase mb-6 block">
+            <span className="font-code text-[10px] sm:text-[11px] font-black text-primary tracking-[0.3em] sm:tracking-[0.5em] uppercase mb-4 sm:mb-6 block">
               Protocolo de Engenharia
             </span>
-            <h2 className="text-5xl md:text-7xl lg:text-9xl font-black tracking-tightest leading-[0.9] text-foreground mb-12">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black tracking-tightest leading-[1] md:leading-[0.9] text-foreground mb-6 sm:mb-12">
               Engenharia Invisível. <br />
               <span className="text-primary">Resultados Reais.</span>
             </h2>
-            <p className="text-lg md:text-2xl text-muted-foreground leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-lg md:text-2xl text-muted-foreground leading-relaxed max-w-3xl">
               Interfaces de alta fidelidade projetadas para dominar o mercado. Performance absoluta, design premium e conversão em cada pixel.
             </p>
           </motion.div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-stretch">
           {projects.map((project, index) => (
             <ProjectCard 
               key={index}
