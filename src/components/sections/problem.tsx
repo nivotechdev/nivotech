@@ -17,7 +17,7 @@ export default function ProblemSection() {
         className="container mx-auto px-4 relative z-10 flex flex-col items-center text-center"
       >
         <SectionTitle className="text-background">
-          Seu site é um ativo ou um passivo?
+          Seu site gera faturamento ou apenas visualizações?
         </SectionTitle>
 
         <motion.p 
@@ -27,7 +27,7 @@ export default function ProblemSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-6 max-w-3xl text-lg md:text-xl text-muted leading-relaxed"
         >
-          Um site comum é um custo que drena seu tráfego e desperdiça oportunidades. Cada visitante que não converte é um investimento perdido. Está na hora de transformar sua presença online em um motor de crescimento.
+          A maioria dos sites são apenas vitrines estáticas que desperdiçam leads e oportunidades todos os dias. Na era da performance, cada segundo de carregamento e cada clique conta. Está na hora de parar de perder clientes e transformar sua presença digital em uma verdadeira máquina de conversão.
         </motion.p>
       </motion.div>
     </section>
