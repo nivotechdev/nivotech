@@ -17,19 +17,17 @@ export default function Home() {
     <>
       <ScrollProgress />
       <Header />
-      <main className="relative">
-        {/* Camada Superior: Hero */}
-        <div className="relative z-10">
+      <main className="relative bg-background">
+        {/* Camada 1: Hero (Flui normalmente) */}
+        <div className="relative z-20 bg-background">
           <HeroSection />
         </div>
 
-        {/* Camada Inferior: Sticky Reveal Section */}
-        <div className="relative z-0">
-          <ProblemSection />
-        </div>
+        {/* Camada 0: Sticky Problem Section (Fica presa ao fundo) */}
+        <ProblemSection />
 
-        {/* Camada Superior de Cobertura: Restante do Site */}
-        <div className="relative z-10">
+        {/* Camada 2: Restante do Site (Cobre a seção fixa ao subir) */}
+        <div className="relative z-20 bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.1)]">
           <FeaturesSection />
           <ShowcaseSection />
           <PerformanceCostSection />
