@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -17,12 +18,12 @@ export default function CtaSection() {
   return (
     <section 
       id="contact"
-      className="relative w-full py-24 md:py-40 bg-background overflow-hidden"
+      className="relative w-full py-24 md:py-40 bg-secondary overflow-hidden"
     >
       {/* Background Tech Grid - Usando a cor primária da paleta */}
       <div className="absolute inset-0 z-0 opacity-40">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-secondary" />
       </div>
 
       {/* Glow Orbs - Harmonizados com a cor primária */}

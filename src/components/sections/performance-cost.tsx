@@ -95,7 +95,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
 
 export default function PerformanceCostSection() {
   return (
-    <section id="portfolio" className="py-20 md:py-40 bg-background relative overflow-hidden">
+    <section id="portfolio" className="py-20 md:py-40 bg-secondary relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
