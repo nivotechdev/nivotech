@@ -17,6 +17,36 @@
       "description": "Clean and modern website portfolio on a screen",
       "imageUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80",
       "imageHint": "modern portfolio"
+    },
+    {
+      "id": "portfolio-fintech",
+      "description": "Modern financial dashboard interface",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+      "imageHint": "modern fintech"
+    },
+    {
+      "id": "portfolio-estate",
+      "description": "Luxury real estate website interface",
+      "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "luxury website"
+    },
+    {
+      "id": "portfolio-saas",
+      "description": "SaaS platform software interface",
+      "imageUrl": "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "saas software"
+    },
+    {
+      "id": "portfolio-shop",
+      "description": "Modern ecommerce shop interface",
+      "imageUrl": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "modern shop"
+    },
+    {
+      "id": "portfolio-ai",
+      "description": "AI analytics data visualization",
+      "imageUrl": "https://images.unsplash.com/photo-1518186239751-6467fff5a90d?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "ai interface"
     }
   ]
 }
