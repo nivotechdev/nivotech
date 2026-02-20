@@ -32,9 +32,9 @@ const VortexCard = ({ item, index, total, scrollProgress, isMobile }: { item: Po
   const opacity = useTransform(translateY, [-800, -400, 0, 400, 800], [0, 0.8, 1, 0.8, 0]);
   const dynamicRotation = useTransform(rotationY, (val) => val + (index * (360 / total)));
 
-  const cardWidth = isMobile ? 240 : 320;
-  const cardHeight = isMobile ? 150 : 200;
-  const spiralRadius = isMobile ? 300 : 450;
+  const cardWidth = isMobile ? 220 : 300;
+  const cardHeight = isMobile ? 140 : 180;
+  const spiralRadius = isMobile ? 280 : 420;
 
   return (
     <motion.div
@@ -50,7 +50,7 @@ const VortexCard = ({ item, index, total, scrollProgress, isMobile }: { item: Po
         y: translateY,
         opacity: opacity,
         transformStyle: 'preserve-3d',
-        willChange: 'transform',
+        willChange: 'transform, opacity',
       }}
       className="group"
     >
@@ -60,23 +60,21 @@ const VortexCard = ({ item, index, total, scrollProgress, isMobile }: { item: Po
           backfaceVisibility: 'hidden',
         }}
         className={cn(
-          "relative w-full h-full rounded-2xl md:rounded-3xl overflow-hidden",
-          "border border-primary/20 bg-card/40 backdrop-blur-[8px]",
-          "shadow-[0_0_20px_rgba(108,100,251,0.1)]",
-          "transition-all duration-700 ease-out",
+          "relative w-full h-full rounded-2xl overflow-hidden",
+          "border border-primary/20 bg-card/40 backdrop-blur-[4px]",
+          "transition-all duration-500 ease-out",
           "group-hover:border-primary/60 group-hover:scale-105"
         )}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 z-0" />
         <img
           src={item.imageUrl}
           alt={item.title}
           className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
           loading="lazy"
         />
-        <div className="absolute bottom-0 left-0 right-0 p-3 md:p-5 bg-gradient-to-t from-background/95 via-background/60 to-transparent">
-          <p className="text-[8px] md:text-xs font-bold tracking-widest uppercase text-primary mb-1">PROJETO 0{index + 1}</p>
-          <p className="text-[10px] md:text-sm font-semibold text-foreground truncate">{item.title}</p>
+        <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-background/95 via-background/40 to-transparent">
+          <p className="text-[8px] md:text-[10px] font-bold tracking-widest uppercase text-primary mb-1">PROJETO 0{index + 1}</p>
+          <p className="text-[10px] md:text-xs font-semibold text-foreground truncate">{item.title}</p>
         </div>
       </motion.div>
     </motion.div>
@@ -100,8 +98,8 @@ export default function PortfolioVortex() {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 50,
-    damping: 30,
+    stiffness: 40,
+    damping: 25,
     restDelta: 0.001
   });
 
@@ -110,12 +108,12 @@ export default function PortfolioVortex() {
       ref={containerRef} 
       className="relative w-full h-[600px] md:h-[800px] flex items-center justify-center overflow-visible"
       style={{ 
-        perspective: '1200px',
-        maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
-        WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)'
+        perspective: '1000px',
+        maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)'
       }}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.05)_0%,transparent_70%)] pointer-events-none" />
       
       <motion.div 
         style={{ 
@@ -136,8 +134,6 @@ export default function PortfolioVortex() {
           />
         ))}
       </motion.div>
-      
-      <div className="absolute w-[1px] h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent blur-xl pointer-events-none" />
     </div>
   );
 }

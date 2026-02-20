@@ -28,23 +28,22 @@ const faqItems = [
 
 export default function FaqSection() {
   return (
-    <section id="faq" className="relative py-20 md:py-40 bg-background overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-primary/5 rounded-full blur-[80px] md:blur-[120px] pointer-events-none" />
+    <section id="faq" className="relative py-20 md:py-32 bg-background overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.02)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] pointer-events-none" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-start">
           
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 lg:sticky lg:top-32"
           >
-            <div className="mb-6 md:mb-8 inline-flex items-center gap-3">
-              <div className="w-8 md:w-12 h-[1px] bg-primary/50" />
-              <span className="font-code text-[10px] md:text-[11px] font-black text-primary tracking-[0.3em] md:tracking-[0.5em] uppercase">
+            <div className="mb-6 inline-flex items-center gap-3">
+              <div className="w-8 h-[1px] bg-primary/50" />
+              <span className="font-code text-[10px] md:text-[11px] font-black text-primary tracking-[0.3em] uppercase">
                 Protocolo FAQ
               </span>
             </div>
@@ -58,7 +57,7 @@ export default function FaqSection() {
               A transparência é o código base da nossa engenharia. Abaixo, decodificamos as dúvidas mais comuns sobre o processo NivoTech.
             </p>
 
-            <div className="mt-8 md:mt-12 p-6 rounded-2xl border border-primary/10 bg-primary/5 backdrop-blur-sm hidden lg:block">
+            <div className="mt-8 p-6 rounded-2xl border border-primary/10 bg-primary/5 hidden lg:block">
               <div className="flex items-center gap-4 text-primary">
                 <HelpCircle className="w-6 h-6" />
                 <span className="font-bold">Ainda com dúvidas?</span>
@@ -70,24 +69,24 @@ export default function FaqSection() {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 w-full"
           >
-            <Accordion type="single" collapsible className="w-full space-y-4 md:space-y-6">
+            <Accordion type="single" collapsible className="w-full space-y-4">
               {faqItems.map((item, index) => (
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`} 
                   className={cn(
-                    "group border-none rounded-[1.5rem] md:rounded-[2rem] overflow-hidden transition-all duration-500",
-                    "bg-neutral-900/40 border border-white/5 hover:border-primary/30 shadow-soft"
+                    "group border-none rounded-[1.5rem] overflow-hidden transition-all duration-300",
+                    "bg-neutral-900/40 border border-white/5 hover:border-primary/20 shadow-soft"
                   )}
                 >
                   <AccordionTrigger className="flex items-center gap-4 md:gap-6 p-6 md:p-8 hover:no-underline text-left transition-all [&[data-state=open]]:bg-primary/5">
-                    <div className="shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center bg-background group-data-[state=open]:bg-primary group-data-[state=open]:border-primary transition-all duration-500">
+                    <div className="shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center bg-background group-data-[state=open]:bg-primary group-data-[state=open]:border-primary transition-all">
                       <span className="text-[10px] md:text-xs font-black text-primary group-data-[state=open]:text-white">
                         0{index + 1}
                       </span>
@@ -96,8 +95,8 @@ export default function FaqSection() {
                       {item.question}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="p-6 md:p-8 pt-0 bg-primary/5 text-muted-foreground text-sm md:text-lg leading-relaxed border-t border-primary/10 animate-in fade-in slide-in-from-top-4 duration-500">
-                    <div className="pt-4 md:pt-6 pl-12 md:pl-16">
+                  <AccordionContent className="p-6 md:p-8 pt-0 bg-primary/5 text-muted-foreground text-sm md:text-lg leading-relaxed border-t border-primary/10 duration-300">
+                    <div className="pt-4 pl-12 md:pl-16">
                       {item.answer}
                     </div>
                   </AccordionContent>

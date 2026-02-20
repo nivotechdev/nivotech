@@ -8,28 +8,28 @@ import Link from 'next/link';
 
 export default function HeroSection() {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
+        staggerChildren: 0.1,
+        delayChildren: 0.05,
         ease: [0.16, 1, 0.3, 1],
       },
     },
   };
 
   const childVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
         ease: [0.16, 1, 0.3, 1],
-        duration: 1
+        duration: 0.8
       }
     }
   };
@@ -42,14 +42,15 @@ export default function HeroSection() {
           loop
           muted
           playsInline
+          preload="auto"
+          // @ts-ignore
           fetchPriority="high"
-          poster=""
           className="absolute top-0 left-0 w-full h-full object-cover"
           src="https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/Imagens/Animate_this_minimalist_202601232110_qwf0n.mp4"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent z-10 hidden md:block" />
         <div className="absolute inset-0 bg-background/60 md:hidden z-10" />
-        <div className="absolute inset-0 bg-background/30 z-10 backdrop-blur-[2px] md:backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-background/30 z-10 backdrop-blur-[1px] md:backdrop-blur-[2px]" />
       </div>
 
       <motion.div
