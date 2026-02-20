@@ -2,7 +2,6 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
@@ -57,12 +56,7 @@ const projects = [
 ];
 
 const ProjectCard = ({ project, index }: { project: typeof projects[0], index: number }) => (
-  <motion.div 
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-50px" }}
-    transition={{ duration: 0.6, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-    style={{ willChange: 'transform, opacity' }}
+  <div 
     className={cn(
       "group relative overflow-hidden rounded-[1.5rem] sm:rounded-[2.5rem] border border-primary/10 bg-neutral-900/40 transition-all duration-500 hover:border-primary/50",
       project.span,
@@ -98,7 +92,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
         </div>
       </div>
     </div>
-  </motion.div>
+  </div>
 );
 
 export default function PerformanceCostSection() {
@@ -108,12 +102,7 @@ export default function PerformanceCostSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="mb-12 md:mb-20 max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
+          <div>
             <span className="font-code text-[10px] sm:text-[11px] font-black text-primary tracking-[0.3em] sm:tracking-[0.5em] uppercase mb-4 block">
               Protocolo de Engenharia
             </span>
@@ -124,7 +113,7 @@ export default function PerformanceCostSection() {
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
               Interfaces de alta fidelidade projetadas para dominar o mercado. Performance absoluta, design premium e conversão em cada pixel.
             </p>
-          </motion.div>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-stretch">
