@@ -1,3 +1,4 @@
+
 "use client";
 
 import Header from '@/components/layout/header';
@@ -16,16 +17,27 @@ export default function Home() {
     <>
       <ScrollProgress />
       <Header />
-      <main className="relative z-10">
-        <HeroSection />
-        <ProblemSection />
-        <FeaturesSection />
-        <ShowcaseSection />
-        <PerformanceCostSection />
-        <FaqSection />
-        <CtaSection />
+      <main className="relative">
+        {/* Camada Superior: Hero */}
+        <div className="relative z-10">
+          <HeroSection />
+        </div>
+
+        {/* Camada Inferior: Sticky Reveal Section */}
+        <div className="relative z-0">
+          <ProblemSection />
+        </div>
+
+        {/* Camada Superior de Cobertura: Restante do Site */}
+        <div className="relative z-10">
+          <FeaturesSection />
+          <ShowcaseSection />
+          <PerformanceCostSection />
+          <FaqSection />
+          <CtaSection />
+          <Footer />
+        </div>
       </main>
-      <Footer />
     </>
   );
 }
