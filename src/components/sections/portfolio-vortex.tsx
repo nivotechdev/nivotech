@@ -25,12 +25,11 @@ const benefitItems: BenefitItem[] = [
 const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: number, isBack?: boolean }) => (
   <div
     className={cn(
-      "absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col justify-center",
-      "border border-primary",
+      "absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col justify-center transition-all duration-500 ease-out",
+      "border border-primary/40", // Borda fina roxa característica
       isBack 
-        ? "bg-primary shadow-lg shadow-primary/20" 
-        : "bg-card/80 backdrop-blur-xl shadow-lg shadow-primary/10",
-      "transition-all duration-500 ease-out"
+        ? "bg-primary shadow-[0_0_40px_rgba(108,100,251,0.3)]" // Verso roxo sólido com glow potente
+        : "bg-card/80 backdrop-blur-xl shadow-lg shadow-primary/10" // Frente com efeito de vidro
     )}
     style={{ 
       backfaceVisibility: 'hidden',
@@ -40,12 +39,13 @@ const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: n
   >
     {!isBack ? (
       <>
+        {/* Lado da Frente com Conteúdo Legível */}
         <div className="flex items-center gap-4 mb-4">
           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/30">
             <item.icon className="w-5 h-5 text-primary" />
           </div>
           <p className="font-code text-[10px] md:text-[11px] font-black text-primary tracking-widest uppercase">
-            SISTEMA 0{index + 1}
+            PROTOCOL 0{index + 1}
           </p>
         </div>
         
@@ -56,14 +56,19 @@ const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: n
           {item.description}
         </p>
 
-        <div className="absolute top-0 right-0 p-2 opacity-30 group-hover:opacity-100 transition-opacity">
-          <div className="w-4 h-4 border-t-2 border-r-2 border-primary rounded-tr-sm" />
+        {/* Detalhe de canto tecnológico */}
+        <div className="absolute top-0 right-0 p-3 opacity-20">
+          <div className="w-5 h-5 border-t border-r border-primary" />
         </div>
       </>
     ) : (
+      /* Lado de Trás: Roxo Sólido e sem texto (Estética de Hardware) */
       <div className="flex items-center justify-center h-full">
-         <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
-            <div className="w-2 h-2 rounded-full bg-white/40 animate-pulse" />
+         <div className="relative">
+            <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center">
+                <div className="w-2 h-2 rounded-full bg-white/40 animate-ping absolute" />
+                <div className="w-2 h-2 rounded-full bg-white/60" />
+            </div>
          </div>
       </div>
     )}
@@ -147,7 +152,7 @@ export default function PortfolioVortex() {
       ref={containerRef} 
       className="relative w-full h-[600px] md:h-[800px] flex items-center justify-center overflow-visible"
       style={{ 
-        perspective: '1500px',
+        perspective: '2000px',
         maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
         WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)'
       }}
@@ -176,4 +181,3 @@ export default function PortfolioVortex() {
     </div>
   );
 }
-
