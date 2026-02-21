@@ -28,10 +28,13 @@ const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: n
       "absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col justify-center",
       "border border-primary/50 bg-card/60 backdrop-blur-xl shadow-lg shadow-primary/10",
       "transition-all duration-500 ease-out",
-      "group-hover:border-primary group-hover:bg-primary/10",
-      isBack ? "[transform:rotateY(180deg)]" : ""
+      "group-hover:border-primary group-hover:bg-primary/10"
     )}
-    style={{ backfaceVisibility: 'hidden' }}
+    style={{ 
+      backfaceVisibility: 'hidden',
+      WebkitBackfaceVisibility: 'hidden',
+      transform: isBack ? 'rotateY(180deg)' : 'rotateY(0deg)',
+    }}
   >
     <div className="flex items-center gap-4 mb-4">
       <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/30">
@@ -99,10 +102,10 @@ const VortexCard = ({ item, index, total, scrollProgress, isMobile }: { item: Be
           position: 'relative'
         }}
       >
-        {/* Front Face */}
+        {/* Front Face - Visível de frente */}
         <CardFace item={item} index={index} />
         
-        {/* Back Face (Mirrored to be readable) */}
+        {/* Back Face - Visível quando o card gira 180 graus (compensado para leitura correta) */}
         <CardFace item={item} index={index} isBack={true} />
       </div>
     </motion.div>
