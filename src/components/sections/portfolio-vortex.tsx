@@ -22,6 +22,40 @@ const benefitItems: BenefitItem[] = [
   { id: 6, title: "INFRA GLOBAL", description: "Servidores de alta disponibilidade.", icon: Globe },
 ];
 
+const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: number, isBack?: boolean }) => (
+  <div
+    className={cn(
+      "absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col justify-center",
+      "border border-primary/50 bg-card/60 backdrop-blur-xl shadow-lg shadow-primary/10",
+      "transition-all duration-500 ease-out",
+      "group-hover:border-primary group-hover:bg-primary/10",
+      isBack ? "[transform:rotateY(180deg)]" : ""
+    )}
+    style={{ backfaceVisibility: 'hidden' }}
+  >
+    <div className="flex items-center gap-4 mb-4">
+      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/30">
+        <item.icon className="w-5 h-5 text-primary" />
+      </div>
+      <p className="font-code text-[10px] md:text-[11px] font-black text-primary tracking-widest uppercase">
+        SISTEMA 0{index + 1}
+      </p>
+    </div>
+    
+    <h3 className="font-headline text-sm md:text-base font-extrabold text-foreground mb-1 leading-tight">
+      {item.title}
+    </h3>
+    <p className="text-[10px] md:text-xs text-muted-foreground font-medium leading-relaxed">
+      {item.description}
+    </p>
+
+    {/* Decorative corner accent */}
+    <div className="absolute top-0 right-0 p-2 opacity-30 group-hover:opacity-100 transition-opacity">
+      <div className="w-4 h-4 border-t-2 border-r-2 border-primary rounded-tr-sm" />
+    </div>
+  </div>
+);
+
 const VortexCard = ({ item, index, total, scrollProgress, isMobile }: { item: BenefitItem, index: number, total: number, scrollProgress: any, isMobile: boolean }) => {
   const rotationY = useTransform(scrollProgress, [0, 1], [0, 1080]); 
   
@@ -56,39 +90,21 @@ const VortexCard = ({ item, index, total, scrollProgress, isMobile }: { item: Be
       }}
       className="group"
     >
-      <motion.div
+      <div
         style={{
           transform: `translateZ(${spiralRadius}px)`,
-          // Removido o backfaceVisibility: 'hidden' para permitir leitura de ambos os lados
+          transformStyle: 'preserve-3d',
+          width: '100%',
+          height: '100%',
+          position: 'relative'
         }}
-        className={cn(
-          "relative w-full h-full rounded-2xl p-6 flex flex-col justify-center",
-          "border border-primary/40 bg-card/40 backdrop-blur-md shadow-lg shadow-primary/5",
-          "transition-all duration-500 ease-out",
-          "group-hover:border-primary/80 group-hover:scale-105 group-hover:bg-primary/10"
-        )}
       >
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/30">
-            <item.icon className="w-5 h-5 text-primary" />
-          </div>
-          <p className="font-code text-[10px] md:text-[11px] font-black text-primary tracking-widest uppercase">
-            SISTEMA 0{index + 1}
-          </p>
-        </div>
+        {/* Front Face */}
+        <CardFace item={item} index={index} />
         
-        <h3 className="font-headline text-sm md:text-base font-extrabold text-foreground mb-1 leading-tight">
-          {item.title}
-        </h3>
-        <p className="text-[10px] md:text-xs text-muted-foreground font-medium leading-relaxed">
-          {item.description}
-        </p>
-
-        {/* Decorative corner accent */}
-        <div className="absolute top-0 right-0 p-2 opacity-30 group-hover:opacity-100 transition-opacity">
-          <div className="w-4 h-4 border-t-2 border-r-2 border-primary rounded-tr-sm" />
-        </div>
-      </motion.div>
+        {/* Back Face (Mirrored to be readable) */}
+        <CardFace item={item} index={index} isBack={true} />
+      </div>
     </motion.div>
   );
 };
@@ -120,7 +136,7 @@ export default function PortfolioVortex() {
       ref={containerRef} 
       className="relative w-full h-[600px] md:h-[800px] flex items-center justify-center overflow-visible"
       style={{ 
-        perspective: '1200px',
+        perspective: '1500px',
         maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
         WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)'
       }}
