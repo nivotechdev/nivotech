@@ -12,11 +12,9 @@ interface SectionTitleProps {
 /**
  * @component SectionTitle
  * Componente de título de seção otimizado para performance e SEO.
- * Utiliza um fade-in simples para evitar Layout Shift (CLS) e manter a sobriedade profissional.
  */
 export const SectionTitle = ({ children, className }: SectionTitleProps) => {
     const ref = useRef<HTMLHeadingElement>(null);
-    // Anima apenas uma vez quando entra na tela para melhor performance
     const isInView = useInView(ref, { amount: 0.2, once: true });
 
     return (
@@ -26,11 +24,11 @@ export const SectionTitle = ({ children, className }: SectionTitleProps) => {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ 
                 duration: 0.6, 
-                ease: [0.16, 1, 0.3, 1] // Desaceleração luxuosa mas sem movimento
+                ease: [0.16, 1, 0.3, 1]
             }}
             style={{ willChange: 'opacity' }}
             className={cn(
-                "font-headline text-4xl md:text-6xl font-bold tracking-tight text-center leading-tight pb-4",
+                "font-headline text-4xl md:text-6xl font-extrabold tracking-tightest text-center leading-[1.1] pb-4",
                 className
             )}
         >

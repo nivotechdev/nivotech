@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -80,10 +79,10 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
     <div className="relative z-10 p-6 sm:p-10">
       <div className="flex items-end justify-between gap-4">
         <div className="space-y-1 sm:space-y-2">
-          <span className="font-code text-[8px] sm:text-[10px] font-black tracking-[0.2em] sm:tracking-[0.3em] text-primary uppercase block opacity-80 sm:opacity-0 sm:-translate-x-2 sm:group-hover:opacity-100 sm:group-hover:translate-x-0 transition-all duration-500">
+          <span className="font-code text-[8px] sm:text-[10px] font-bold tracking-widest text-primary uppercase block opacity-80 sm:opacity-0 sm:-translate-x-2 sm:group-hover:opacity-100 sm:group-hover:translate-x-0 transition-all duration-500">
             {project.category}
           </span>
-          <h3 className="font-headline text-xl sm:text-2xl md:text-4xl font-bold text-white leading-none tracking-tight">
+          <h3 className="font-headline text-xl sm:text-2xl md:text-4xl font-extrabold text-white leading-none tracking-tightest">
             {project.title}
           </h3>
         </div>
@@ -103,10 +102,10 @@ export default function PerformanceCostSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="mb-12 md:mb-20 max-w-5xl">
           <div>
-            <span className="font-code text-[10px] sm:text-[11px] font-black text-primary tracking-[0.3em] sm:tracking-[0.5em] uppercase mb-4 block">
+            <span className="font-code text-[10px] sm:text-[11px] font-bold text-primary tracking-widest uppercase mb-4 block">
               Protocolo de Engenharia
             </span>
-            <h2 className="font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1] md:leading-[0.9] text-foreground mb-6 sm:mb-8">
+            <h2 className="font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tightest leading-[1] md:leading-[0.9] text-foreground mb-6 sm:mb-8">
               Engenharia Invisível. <br />
               <span className="text-primary">Resultados Reais.</span>
             </h2>

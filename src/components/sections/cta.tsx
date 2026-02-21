@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -32,32 +31,32 @@ export default function CtaSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center text-center">
           
-          {/* Top Label - Static */}
+          {/* Top Label */}
           <div className="mb-8 inline-flex items-center gap-4">
             <div className="h-px w-8 bg-primary/30" />
-            <span className="font-code text-[10px] md:text-xs font-black text-primary tracking-[0.4em] uppercase">
+            <span className="font-code text-[10px] md:text-xs font-bold text-primary tracking-widest uppercase">
               Protocolo de Ativação
             </span>
             <div className="h-px w-8 bg-primary/30" />
           </div>
 
-          {/* Main Heading - Static */}
-          <h2 className="font-headline text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-[1] md:leading-[0.9] text-foreground max-w-5xl">
+          {/* Main Heading */}
+          <h2 className="font-headline text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tightest leading-[1] md:leading-[0.9] text-foreground max-w-5xl">
             Pronto para <span className="text-primary">Dominar</span> <br />
             seu Mercado?
           </h2>
 
-          {/* Subtitle - Static */}
+          {/* Subtitle */}
           <p className="mt-8 max-w-2xl text-base md:text-xl text-muted-foreground leading-relaxed font-medium">
             Sua presença digital merece engenharia de alta fidelidade. Vamos construir juntos o próximo nível do seu negócio.
           </p>
           
-          {/* CTA Button Area - Static container */}
+          {/* CTA Button Area */}
           <div className="mt-12 w-full max-w-sm">
              <WhatsAppButton />
           </div>
 
-          {/* Credibility Badges - Static */}
+          {/* Credibility Badges */}
           <div className="mt-16 flex flex-wrap justify-center gap-4">
             <CredibilityBadge icon={Zap} text="Alta Performance" />
             <CredibilityBadge icon={ShieldCheck} text="Segurança Ativa" />
@@ -66,7 +65,7 @@ export default function CtaSection() {
 
           {/* Bottom Certified Text */}
           <div className="mt-20 opacity-30">
-            <p className="font-code text-[9px] md:text-[10px] tracking-[0.6em] text-foreground uppercase">
+            <p className="font-code text-[9px] md:text-[10px] tracking-widest text-foreground uppercase">
               Nivotech High Performance Hub © 2026
             </p>
           </div>

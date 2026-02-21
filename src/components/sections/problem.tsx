@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -30,7 +29,7 @@ export default function ProblemSection() {
             className="mb-8 inline-flex items-center gap-3 px-4 py-2 rounded-full bg-background/10 border border-background/20 backdrop-blur-md"
           >
             <AlertCircle className="w-4 h-4 text-background animate-pulse" />
-            <span className="font-code text-[10px] md:text-xs font-black text-background tracking-[0.3em] uppercase">
+            <span className="font-code text-[10px] md:text-xs font-bold text-background tracking-widest uppercase">
               Protocolo de Auditoria: Alerta Crítico
             </span>
           </motion.div>
@@ -41,7 +40,7 @@ export default function ProblemSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="font-headline text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-[1] md:leading-[0.9] text-background"
+            className="font-headline text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tightest leading-[1] md:leading-[0.9] text-background"
           >
             Faturamento Real ou <br />
             <span className="opacity-40">Apenas Vaidade?</span>
@@ -55,7 +54,7 @@ export default function ProblemSection() {
               viewport={{ once: true }}
               className="md:col-span-7"
             >
-              <p className="text-xl md:text-2xl font-bold text-background leading-relaxed">
+              <p className="text-xl md:text-2xl font-extrabold text-background leading-relaxed">
                 Sua presença digital gera faturamento ou apenas visualizações?
               </p>
               <p className="mt-4 text-lg text-background/70 leading-relaxed font-medium">
@@ -72,7 +71,7 @@ export default function ProblemSection() {
               >
                 <div className="flex items-center gap-4 mb-2">
                   <TrendingDown className="w-6 h-6 text-background/60" />
-                  <span className="font-black text-sm text-background">Drenagem de Leads</span>
+                  <span className="font-bold text-sm text-background">Drenagem de Leads</span>
                 </div>
                 <div className="w-full h-1 bg-background/10 rounded-full overflow-hidden">
                   <div className="h-full bg-background/40 w-[85%]" />
@@ -87,7 +86,7 @@ export default function ProblemSection() {
               >
                 <div className="flex items-center gap-4 mb-2">
                   <ZapOff className="w-6 h-6 text-background/60" />
-                  <span className="font-black text-sm text-background">Ineficiência Técnica</span>
+                  <span className="font-bold text-sm text-background">Ineficiência Técnica</span>
                 </div>
                 <div className="w-full h-1 bg-background/10 rounded-full overflow-hidden">
                   <div className="h-full bg-background/40 w-[92%]" />
@@ -98,7 +97,7 @@ export default function ProblemSection() {
 
           {/* Bottom Protocol */}
           <div className="mt-16 opacity-20 hidden md:block">
-            <p className="font-code text-[9px] md:text-[10px] tracking-[0.5em] text-background uppercase">
+            <p className="font-code text-[9px] md:text-[10px] tracking-widest text-background uppercase">
               Auditoria Requerida • NivoTech Systems 2026
             </p>
           </div>
