@@ -45,10 +45,10 @@ const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: n
       </p>
     </div>
     
-    <h3 className="font-headline text-sm md:text-base font-extrabold text-foreground mb-1 leading-tight">
+    <h3 className="font-headline text-sm md:text-base font-extrabold text-foreground mb-1 leading-tight text-left">
       {item.title}
     </h3>
-    <p className="text-[10px] md:text-xs text-muted-foreground font-medium leading-relaxed">
+    <p className="text-[10px] md:text-xs text-muted-foreground font-medium leading-relaxed text-left">
       {item.description}
     </p>
 
@@ -102,10 +102,10 @@ const VortexCard = ({ item, index, total, scrollProgress, isMobile }: { item: Be
           position: 'relative'
         }}
       >
-        {/* Front Face - Visível de frente */}
+        {/* Front Face - Visível quando de frente */}
         <CardFace item={item} index={index} />
         
-        {/* Back Face - Visível quando o card gira 180 graus (compensado para leitura correta) */}
+        {/* Back Face - Visível quando de costas (compensado para leitura correta) */}
         <CardFace item={item} index={index} isBack={true} />
       </div>
     </motion.div>
