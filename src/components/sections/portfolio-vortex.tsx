@@ -56,13 +56,12 @@ const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: n
           {item.description}
         </p>
 
-        {/* Detalhe estético frontal para reforçar a tecnologia */}
         <div className="absolute top-0 right-0 p-3 opacity-20">
           <div className="w-5 h-5 border-t border-r border-primary" />
         </div>
       </>
     ) : (
-      /* Lado de Trás: Roxo Sólido e SEM TEXTO */
+      /* Lado de Trás: Roxo Sólido e ABSOLUTAMENTE SEM TEXTO */
       <div className="flex items-center justify-center h-full w-full">
          <div className="w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center">
             <div className="w-8 h-8 rounded-full bg-white/10 animate-pulse" />
