@@ -26,9 +26,11 @@ const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: n
   <div
     className={cn(
       "absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col justify-center",
-      "border border-primary/50 bg-card/60 backdrop-blur-xl shadow-lg shadow-primary/10",
-      "transition-all duration-500 ease-out",
-      "group-hover:border-primary group-hover:bg-primary/10"
+      "border border-primary",
+      isBack 
+        ? "bg-primary shadow-lg shadow-primary/20" 
+        : "bg-card/80 backdrop-blur-xl shadow-lg shadow-primary/10",
+      "transition-all duration-500 ease-out"
     )}
     style={{ 
       backfaceVisibility: 'hidden',
@@ -36,26 +38,35 @@ const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: n
       transform: isBack ? 'rotateY(180deg)' : 'rotateY(0deg)',
     }}
   >
-    <div className="flex items-center gap-4 mb-4">
-      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/30">
-        <item.icon className="w-5 h-5 text-primary" />
-      </div>
-      <p className="font-code text-[10px] md:text-[11px] font-black text-primary tracking-widest uppercase">
-        SISTEMA 0{index + 1}
-      </p>
-    </div>
-    
-    <h3 className="font-headline text-sm md:text-base font-extrabold text-foreground mb-1 leading-tight text-left">
-      {item.title}
-    </h3>
-    <p className="text-[10px] md:text-xs text-muted-foreground font-medium leading-relaxed text-left">
-      {item.description}
-    </p>
+    {!isBack ? (
+      <>
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/30">
+            <item.icon className="w-5 h-5 text-primary" />
+          </div>
+          <p className="font-code text-[10px] md:text-[11px] font-black text-primary tracking-widest uppercase">
+            SISTEMA 0{index + 1}
+          </p>
+        </div>
+        
+        <h3 className="font-headline text-sm md:text-base font-extrabold text-foreground mb-1 leading-tight text-left">
+          {item.title}
+        </h3>
+        <p className="text-[10px] md:text-xs text-muted-foreground font-medium leading-relaxed text-left">
+          {item.description}
+        </p>
 
-    {/* Decorative corner accent */}
-    <div className="absolute top-0 right-0 p-2 opacity-30 group-hover:opacity-100 transition-opacity">
-      <div className="w-4 h-4 border-t-2 border-r-2 border-primary rounded-tr-sm" />
-    </div>
+        <div className="absolute top-0 right-0 p-2 opacity-30 group-hover:opacity-100 transition-opacity">
+          <div className="w-4 h-4 border-t-2 border-r-2 border-primary rounded-tr-sm" />
+        </div>
+      </>
+    ) : (
+      <div className="flex items-center justify-center h-full">
+         <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
+            <div className="w-2 h-2 rounded-full bg-white/40 animate-pulse" />
+         </div>
+      </div>
+    )}
   </div>
 );
 
@@ -102,10 +113,7 @@ const VortexCard = ({ item, index, total, scrollProgress, isMobile }: { item: Be
           position: 'relative'
         }}
       >
-        {/* Front Face - Visível quando de frente */}
-        <CardFace item={item} index={index} />
-        
-        {/* Back Face - Visível quando de costas (compensado para leitura correta) */}
+        <CardFace item={item} index={index} isBack={false} />
         <CardFace item={item} index={index} isBack={true} />
       </div>
     </motion.div>
@@ -168,3 +176,4 @@ export default function PortfolioVortex() {
     </div>
   );
 }
+
