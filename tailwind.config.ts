@@ -19,7 +19,7 @@ export default {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
-        headline: ['var(--font-inter)', 'sans-serif'],
+        headline: ['var(--font-plus-jakarta-sans)', 'sans-serif'],
         code: ['"IBM Plex Mono"', 'monospace'],
       },
       colors: {
