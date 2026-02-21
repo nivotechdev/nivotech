@@ -41,7 +41,7 @@ export default function ProblemSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tightest leading-[1] md:leading-[0.9] text-background"
+            className="font-headline text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-[1] md:leading-[0.9] text-background"
           >
             Faturamento Real ou <br />
             <span className="opacity-40">Apenas Vaidade?</span>

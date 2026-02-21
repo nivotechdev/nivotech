@@ -61,7 +61,7 @@ export default function HeroSection() {
       >
         <motion.h1
           variants={childVariants}
-          className="font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tightest leading-[1.1] md:leading-none text-foreground"
+          className="font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] md:leading-none text-foreground"
         >
           Engenharia Digital
           <br />

@@ -48,7 +48,7 @@ export default function FaqSection() {
               </span>
             </div>
             
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tightest leading-[1.1] md:leading-[0.9] text-foreground mb-6 md:mb-8">
+            <h2 className="font-headline text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] md:leading-[0.9] text-foreground mb-6 md:mb-8">
               Eliminando a <br />
               <span className="text-primary">Incerteza.</span>
             </h2>
@@ -91,7 +91,7 @@ export default function FaqSection() {
                         0{index + 1}
                       </span>
                     </div>
-                    <span className="text-base md:text-xl font-black text-foreground group-data-[state=open]:text-primary transition-colors">
+                    <span className="font-headline text-base md:xl font-bold text-foreground group-data-[state=open]:text-primary transition-colors">
                       {item.question}
                     </span>
                   </AccordionTrigger>

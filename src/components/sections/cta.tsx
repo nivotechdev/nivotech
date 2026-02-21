@@ -42,7 +42,7 @@ export default function CtaSection() {
           </div>
 
           {/* Main Heading - Static */}
-          <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tightest leading-[1] md:leading-[0.9] text-foreground max-w-5xl">
+          <h2 className="font-headline text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-[1] md:leading-[0.9] text-foreground max-w-5xl">
             Pronto para <span className="text-primary">Dominar</span> <br />
             seu Mercado?
           </h2>
