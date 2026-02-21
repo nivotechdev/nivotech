@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useRef } from 'react';
@@ -42,9 +41,6 @@ export default function HeroSection() {
           loop
           muted
           playsInline
-          preload="auto"
-          // @ts-ignore
-          fetchPriority="high"
           className="absolute top-0 left-0 w-full h-full object-cover"
           src="https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/Imagens/Animate_this_minimalist_202601232110_qwf0n.mp4"
         />
@@ -61,7 +57,7 @@ export default function HeroSection() {
       >
         <motion.h1
           variants={childVariants}
-          className="font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] md:leading-none text-foreground"
+          className="font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tightest leading-[1.1] md:leading-[0.9] text-foreground"
         >
           Engenharia Digital
           <br />
@@ -69,7 +65,7 @@ export default function HeroSection() {
         </motion.h1>
         <motion.p
           variants={childVariants}
-          className="mt-6 max-w-xl text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed mx-auto md:mx-0"
+          className="mt-6 max-w-xl text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed mx-auto md:mx-0 font-medium"
         >
           Criamos ecossistemas digitais de alta performance que cativam, convertem e impulsionam o crescimento do seu negócio.
         </motion.p>

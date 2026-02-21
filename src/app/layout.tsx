@@ -1,18 +1,27 @@
 import type {Metadata} from 'next';
 import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter, Plus_Jakarta_Sans, IBM_Plex_Mono } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import Script from 'next/script';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-plus-jakarta-sans',
+  display: 'swap',
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-ibm-plex-mono',
+  display: 'swap',
 });
 
 
@@ -26,7 +35,6 @@ export const metadata: Metadata = {
       sizes: "16x16",
     },
   },
-  themeColor: "#ffffff",
   other: {
     "msapplication-TileColor": "#ffffff",
   },
@@ -38,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={cn(inter.variable, plusJakartaSans.variable)} suppressHydrationWarning>
+    <html lang="pt-BR" className={cn(inter.variable, plusJakartaSans.variable, ibmPlexMono.variable)} suppressHydrationWarning>
       <Script id="google-tag-manager" strategy="afterInteractive">
         {`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -48,7 +56,7 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','GTM-TLP3P89D');
         `}
       </Script>
-      <body>
+      <body className="font-sans antialiased text-foreground bg-background">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-TLP3P89D"

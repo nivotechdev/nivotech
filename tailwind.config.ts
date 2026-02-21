@@ -10,7 +10,9 @@ export default {
   theme: {
     extend: {
       letterSpacing: {
-        tightest: '-0.02em',
+        tightest: '-0.04em',
+        tighter: '-0.02em',
+        widest: '0.2em',
       },
       boxShadow: {
         'soft': '0 10px 30px rgba(108, 100, 251, 0.08)',
@@ -20,7 +22,8 @@ export default {
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
         headline: ['var(--font-plus-jakarta-sans)', 'sans-serif'],
-        code: ['"IBM Plex Mono"', 'monospace'],
+        mono: ['var(--font-ibm-plex-mono)', 'monospace'],
+        code: ['var(--font-ibm-plex-mono)', 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',
