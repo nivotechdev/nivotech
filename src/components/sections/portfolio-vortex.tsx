@@ -22,30 +22,36 @@ const benefitItems: BenefitItem[] = [
   { id: 6, title: "INFRA GLOBAL", description: "Servidores de alta disponibilidade.", icon: Globe },
 ];
 
+/**
+ * @component CardFace
+ * Renderiza uma face específica do card (frente ou verso).
+ * Utiliza backface-visibility para garantir que apenas a face voltada para a câmera seja visível.
+ */
 const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: number, isBack?: boolean }) => (
   <div
     className={cn(
       "absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col justify-center transition-all duration-500 ease-out",
       "border border-primary/40",
       isBack 
-        ? "bg-primary shadow-[0_0_50px_rgba(108,100,251,0.5)]" 
-        : "bg-card/80 backdrop-blur-xl shadow-lg shadow-primary/10"
+        ? "bg-primary shadow-[0_0_50px_rgba(108,100,251,0.3)]" // Face Traseira: Roxa Sólida
+        : "bg-card/80 backdrop-blur-xl shadow-lg shadow-primary/10" // Face Frontal: Glassmorphism
     )}
     style={{ 
       backfaceVisibility: 'hidden',
       WebkitBackfaceVisibility: 'hidden',
       transform: isBack ? 'rotateY(180deg)' : 'rotateY(0deg)',
+      transformStyle: 'preserve-3d',
     }}
   >
     {!isBack ? (
       <>
-        {/* Lado da Frente: Conteúdo visível e legível */}
+        {/* CONTEÚDO DA FRENTE: Visível e Técnico */}
         <div className="flex items-center gap-4 mb-4">
           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/30">
             <item.icon className="w-5 h-5 text-primary" />
           </div>
           <p className="font-code text-[10px] md:text-[11px] font-black text-primary tracking-widest uppercase">
-            MODULE 0{index + 1}
+            PROTOCOL 0{index + 1}
           </p>
         </div>
         
@@ -56,12 +62,13 @@ const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: n
           {item.description}
         </p>
 
+        {/* Detalhe de Canto de Engenharia */}
         <div className="absolute top-0 right-0 p-3 opacity-20">
           <div className="w-5 h-5 border-t border-r border-primary" />
         </div>
       </>
     ) : (
-      /* Lado de Trás: Roxo Sólido e ABSOLUTAMENTE SEM TEXTO */
+      /* CONTEÚDO DO VERSO: Roxo Sólido sem Texto */
       <div className="flex items-center justify-center h-full w-full">
          <div className="w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center">
             <div className="w-8 h-8 rounded-full bg-white/10 animate-pulse" />
@@ -72,15 +79,20 @@ const CardFace = ({ item, index, isBack = false }: { item: BenefitItem, index: n
 );
 
 const VortexCard = ({ item, index, total, scrollProgress, isMobile }: { item: BenefitItem, index: number, total: number, scrollProgress: any, isMobile: boolean }) => {
+  // Rotação Y baseada no scroll para o efeito de órbita
   const rotationY = useTransform(scrollProgress, [0, 1], [0, 1080]); 
   
+  // Movimento vertical para criar o efeito de "parafuso" (vortex)
   const translateY = useTransform(
     scrollProgress, 
     [0, 1], 
     [index * (isMobile ? 120 : 200) + 400, (index - total) * (isMobile ? 180 : 300) - 400]
   );
   
+  // Controle de opacidade baseado na profundidade vertical
   const opacity = useTransform(translateY, [-800, -400, 0, 400, 800], [0, 0.8, 1, 0.8, 0]);
+  
+  // Rotação dinâmica individual para cada card na órbita
   const dynamicRotation = useTransform(rotationY, (val) => val + (index * (360 / total)));
 
   const cardWidth = isMobile ? 220 : 300;
@@ -105,6 +117,7 @@ const VortexCard = ({ item, index, total, scrollProgress, isMobile }: { item: Be
       }}
       className="group"
     >
+      {/* Container de Profundidade 3D */}
       <div
         style={{
           transform: `translateZ(${spiralRadius}px)`,
@@ -114,7 +127,10 @@ const VortexCard = ({ item, index, total, scrollProgress, isMobile }: { item: Be
           position: 'relative'
         }}
       >
+        {/* Face Frontal (Lado Ativo com Texto) */}
         <CardFace item={item} index={index} isBack={false} />
+        
+        {/* Face Traseira (Lado Roxo Sólido sem Texto) */}
         <CardFace item={item} index={index} isBack={true} />
       </div>
     </motion.div>
@@ -153,6 +169,7 @@ export default function PortfolioVortex() {
         WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)'
       }}
     >
+      {/* Glow Center Aura */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.08)_0%,transparent_70%)] pointer-events-none" />
       
       <motion.div 
