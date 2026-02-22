@@ -34,7 +34,11 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" ref={ref} className="relative min-h-[90vh] md:h-screen w-full flex items-center justify-center md:justify-start text-center md:text-left overflow-hidden bg-background pt-20 md:pt-0">
+    <section 
+      id="hero" 
+      ref={ref} 
+      className="relative w-full min-h-[100dvh] flex items-center justify-center md:justify-start text-center md:text-left overflow-hidden"
+    >
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -42,7 +46,7 @@ export default function HeroSection() {
           muted
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover"
-          src="https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/Imagens/Animate_this_minimalist_202601232110_qwf0n.mp4"
+          src="https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/nivotech/Animate_this_minimalist_202601232110_qwf0n.mp4"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent z-10 hidden md:block" />
         <div className="absolute inset-0 bg-background/60 md:hidden z-10" />
@@ -53,7 +57,7 @@ export default function HeroSection() {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="container mx-auto px-4 relative z-20"
+        className="relative z-20 w-full max-w-7xl mx-auto px-8 md:px-16"
       >
         <motion.h1
           variants={childVariants}

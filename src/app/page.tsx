@@ -4,7 +4,6 @@
 import Header from '@/components/layout/header';
 import HeroSection from '@/components/sections/hero';
 import ProblemSection from '@/components/sections/problem';
-import FeaturesSection from '@/components/sections/features';
 import PerformanceCostSection from '@/components/sections/performance-cost';
 import ShowcaseSection from '@/components/sections/showcase';
 import FaqSection from '@/components/sections/faq';
@@ -28,7 +27,6 @@ export default function Home() {
 
         {/* Camada 2: Restante do Site (Cobre a seção fixa ao subir) */}
         <div className="relative z-20 bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.1)]">
-          <FeaturesSection />
           <ShowcaseSection />
           <PerformanceCostSection />
           <FaqSection />

@@ -4,58 +4,39 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const projects = [
   {
-    title: "Fintech Horizon",
-    category: "Banking & Dashboard",
-    image: PlaceHolderImages.find(img => img.id === 'portfolio-fintech')?.imageUrl || "https://picsum.photos/seed/fintech/1200/800",
-    hint: "modern fintech",
+    title: "Agência Quantix",
+    category: "Agência de Marketing",
+    image: "https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/nivotech/Captura%20de%20tela%202026-02-14%20151608.png",
+    hint: "agencia quantix",
     span: "md:col-span-8 md:row-span-2",
     mobileHeight: "min-h-[350px] md:min-h-[450px]",
     priority: true,
   },
   {
-    title: "Luxe Estate",
-    category: "Real Estate Portal",
-    image: PlaceHolderImages.find(img => img.id === 'portfolio-estate')?.imageUrl || "https://picsum.photos/seed/estate/800/600",
-    hint: "luxury real estate",
+    title: "PlenaClin",
+    category: "Clínica de Saúde",
+    image: "https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/nivotech/Captura%20de%20tela%202026-02-21%20155006.png",
+    hint: "clinica plenaclin",
     span: "md:col-span-4 md:row-span-1",
     mobileHeight: "min-h-[280px]",
     priority: false,
   },
   {
-    title: "SaaS Matrix",
-    category: "Cloud Solution",
-    image: PlaceHolderImages.find(img => img.id === 'portfolio-saas')?.imageUrl || "https://picsum.photos/seed/saas/800/600",
-    hint: "saas software",
+    title: "Dr. Marcos Guerra",
+    category: "Profissional de Saúde",
+    image: "https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/nivotech/Captura%20de%20tela%202026-02-21%20155820.png",
+    hint: "dr marcos guerra",
     span: "md:col-span-4 md:row-span-1",
     mobileHeight: "min-h-[280px]",
-    priority: false,
-  },
-  {
-    title: "E-comm Premium",
-    category: "High Conversion Shop",
-    image: PlaceHolderImages.find(img => img.id === 'portfolio-shop')?.imageUrl || "https://picsum.photos/seed/shop/800/600",
-    hint: "modern shop",
-    span: "md:col-span-6 md:row-span-1",
-    mobileHeight: "min-h-[300px] md:min-h-[320px]",
-    priority: false,
-  },
-  {
-    title: "AI Analytics",
-    category: "Data Visualization",
-    image: PlaceHolderImages.find(img => img.id === 'portfolio-ai')?.imageUrl || "https://picsum.photos/seed/ai/800/600",
-    hint: "ai interface",
-    span: "md:col-span-6 md:row-span-1",
-    mobileHeight: "min-h-[300px] md:min-h-[320px]",
     priority: false,
   }
 ];
 
 const ProjectCard = ({ project, index }: { project: typeof projects[0], index: number }) => (
-  <div 
+  <div
     className={cn(
       "group relative overflow-hidden rounded-[1.5rem] sm:rounded-[2.5rem] border border-primary/10 bg-neutral-900/40 transition-all duration-500 hover:border-primary/50",
       project.span,
@@ -64,7 +45,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
     )}
   >
     <div className="absolute inset-0 z-0">
-      <Image 
+      <Image
         src={project.image}
         alt={project.title}
         fill
@@ -96,7 +77,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
 
 export default function PerformanceCostSection() {
   return (
-    <section id="portfolio" className="py-20 md:py-32 bg-secondary relative overflow-hidden">
+    <section id="portfolio" className="py-20 md:py-32 bg-secondary relative">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -114,10 +95,10 @@ export default function PerformanceCostSection() {
             </p>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-stretch">
           {projects.map((project, index) => (
-            <ProjectCard 
+            <ProjectCard
               key={index}
               project={project}
               index={index}
