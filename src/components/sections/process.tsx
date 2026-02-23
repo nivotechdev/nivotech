@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { motion } from "framer-motion";
 import { Search, Pencil, Code, Cog } from "lucide-react";
@@ -30,7 +30,11 @@ const processSteps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="relative py-24 md:py-32 overflow-hidden bg-background">
+    <section 
+      id="process" 
+      className="relative z-10 py-24 md:py-32 overflow-hidden bg-background"
+      style={{ willChange: 'transform' }}
+    >
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-50" />
         <div className="absolute bottom-0 -right-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-50" />
@@ -62,12 +66,13 @@ export default function ProcessSection() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              style={{ willChange: 'transform, opacity' }}
               className="relative pl-20 md:pl-24"
             >
               {/* Node (Icon) */}
               <div className="absolute left-0 top-1/2 -translate-y-1/2">
-                <div className="z-10 flex h-12 w-12 items-center justify-center rounded-full bg-card/60 backdrop-blur-md border border-primary/30 md:h-16 md:w-16">
+                <div className="z-10 flex h-12 w-12 items-center justify-center rounded-full bg-card/80 border border-primary/30 md:h-16 md:w-16">
                   <div className="absolute inset-0 rounded-full bg-primary/20 animate-pulse blur-md" />
                   <step.icon className="z-10 h-6 w-6 text-primary md:h-8 md:w-8" />
                 </div>

@@ -1,9 +1,10 @@
-"use client";
+'use client';
 
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -36,7 +37,12 @@ const projects = [
 ];
 
 const ProjectCard = ({ project, index }: { project: typeof projects[0], index: number }) => (
-  <div
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-50px" }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    style={{ willChange: 'transform, opacity' }}
     className={cn(
       "group relative overflow-hidden rounded-[1.5rem] sm:rounded-[2.5rem] border border-primary/10 bg-neutral-900/40 transition-all duration-500 hover:border-primary/50",
       project.span,
@@ -52,6 +58,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         priority={project.priority}
         className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+        style={{ willChange: 'transform, opacity' }}
         data-ai-hint={project.hint}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-primary/5 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
@@ -67,21 +74,32 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
             {project.title}
           </h3>
         </div>
-        <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/20 flex items-center justify-center sm:opacity-0 sm:scale-75 sm:group-hover:opacity-100 sm:group-hover:scale-100 transition-all duration-300 border border-primary/30 backdrop-blur-md">
+        <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/20 flex items-center justify-center sm:opacity-0 sm:scale-75 sm:group-hover:opacity-100 sm:group-hover:scale-100 transition-all duration-300 border border-primary/30 md:backdrop-blur-md">
           <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
         </div>
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 export default function PerformanceCostSection() {
   return (
-    <section id="portfolio" className="py-20 md:py-32 bg-secondary relative">
+    <section 
+      id="portfolio" 
+      className="py-20 md:py-32 bg-background relative z-10"
+      style={{ willChange: 'transform' }}
+    >
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="mb-12 md:mb-20 max-w-5xl">
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            style={{ willChange: 'transform, opacity' }}
+            className="mb-12 md:mb-20 max-w-5xl"
+        >
           <div>
             <span className="font-code text-[10px] sm:text-[11px] font-bold text-primary tracking-widest uppercase mb-4 block">
               Protocolo de Engenharia
@@ -94,7 +112,7 @@ export default function PerformanceCostSection() {
               Interfaces de alta fidelidade projetadas para dominar o mercado. Performance absoluta, design premium e conversão em cada pixel.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-stretch">
           {projects.map((project, index) => (

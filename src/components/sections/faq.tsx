@@ -14,11 +14,11 @@ const faqItems = [
   },
   {
     question: "Quanto tempo leva para meu site ficar pronto?",
-    answer: "Um projeto de alta performance geralmente leva de 4 a 8 semanas, dependendo da sua complexidade. Este prazo inclui etapas cruciais como análise estratégica, design de interface (UI/UX) (UI/UX), desenvolvimento, testes rigorosos e otimizações de performance."
+    answer: "Um projeto de alta performance geralmente leva de 4 a 8 semanas, dependendo da sua complexidade. Este prazo inclui etapas cruciais como análise estratégica, design de interface (UI/UX), desenvolvimento, testes rigorosos e otimizações de performance."
   },
   {
     question: "O que é 'Engenharia de Conversão'?",
-    answer: "É a nossa metodologia que combina design psicológico, copywriting, performance técnica (velocidade e responsividade) (velocidade e responsividade) e análise de dados para transformar o máximo de visitantes em clientes. Não focamos em achismos, mas em uma arquitetura projetada para gerar resultados."
+    answer: "É a nossa metodologia que combina design psicológico, copywriting, performance técnica (velocidade e responsividade) e análise de dados para transformar o máximo de visitantes em clientes. Não focamos em achismos, mas em uma arquitetura projetada para gerar resultados."
   },
   {
     question: "Vocês oferecem manutenção após o lançamento?",
@@ -37,8 +37,9 @@ export default function FaqSection() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            style={{ willChange: 'transform, opacity' }}
             className="lg:col-span-5 lg:sticky lg:top-32"
           >
             <div className="mb-6 inline-flex items-center gap-3">
@@ -71,36 +72,45 @@ export default function FaqSection() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            style={{ willChange: 'transform, opacity' }}
             className="lg:col-span-7 w-full"
           >
             <Accordion type="single" collapsible className="w-full space-y-4">
               {faqItems.map((item, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`} 
-                  className={cn(
-                    "group border border-primary/20 rounded-[1.5rem] overflow-hidden transition-all duration-300",
-                    "bg-secondary hover:border-primary/50 shadow-soft"
-                  )}
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                  style={{ willChange: 'transform, opacity' }}
                 >
-                  <AccordionTrigger className="flex items-center gap-4 md:gap-6 p-6 md:p-8 hover:no-underline text-left transition-all [&[data-state=open]]:bg-primary/5">
-                    <div className="shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center bg-background group-data-[state=open]:bg-primary group-data-[state=open]:border-primary transition-all">
-                      <span className="text-[10px] md:text-xs font-black text-primary group-data-[state=open]:text-white">
-                        0{index + 1}
+                  <AccordionItem 
+                    value={`item-${index}`} 
+                    className={cn(
+                      "group border border-primary/20 rounded-[1.5rem] overflow-hidden transition-all duration-300",
+                      "bg-secondary hover:border-primary/50 shadow-soft"
+                    )}
+                  >
+                    <AccordionTrigger className="flex items-center gap-4 md:gap-6 p-6 md:p-8 hover:no-underline text-left transition-all [&[data-state=open]]:bg-primary/5">
+                      <div className="shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center bg-background group-data-[state=open]:bg-primary group-data-[state=open]:border-primary transition-all">
+                        <span className="text-[10px] md:text-xs font-black text-primary group-data-[state=open]:text-white">
+                          0{index + 1}
+                        </span>
+                      </div>
+                      <span className="font-headline text-base md:xl font-bold text-foreground group-data-[state=open]:text-primary transition-colors">
+                        {item.question}
                       </span>
-                    </div>
-                    <span className="font-headline text-base md:xl font-bold text-foreground group-data-[state=open]:text-primary transition-colors">
-                      {item.question}
-                    </span>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 md:p-8 pt-0 bg-primary/5 text-muted-foreground text-sm md:text-lg leading-relaxed border-t border-primary/10 duration-300">
-                    <div className="pt-4 pl-12 md:pl-16">
-                      {item.answer}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+                    </AccordionTrigger>
+                    <AccordionContent className="p-6 md:p-8 pt-0 bg-primary/5 text-muted-foreground text-sm md:text-lg leading-relaxed border-t border-primary/10 duration-300">
+                      <div className="pt-4 pl-12 md:pl-16">
+                        {item.answer}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
               ))}
             </Accordion>
           </motion.div>

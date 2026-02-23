@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -7,7 +7,9 @@ import { AlertCircle, TrendingDown, ZapOff } from 'lucide-react';
 export default function ProblemSection() {
   return (
     <section 
-      className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center bg-primary z-10"
+      id="problem" 
+      className="relative w-full py-24 md:py-32 bg-primary z-10 overflow-hidden"
+      style={{ willChange: 'transform' }}
     >
       {/* Background Tech Elements */}
       <div className="absolute inset-0 z-0">
@@ -16,7 +18,7 @@ export default function ProblemSection() {
       </div>
 
       {/* Decorative Orbs */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[300px] h-[300px] bg-background/10 rounded-full blur-[100px] animate-aura-pulse" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[300px] h-[300px] bg-background/10 rounded-full blur-[100px] animate-aura-pulse hidden md:block" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
@@ -25,8 +27,10 @@ export default function ProblemSection() {
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-8 inline-flex items-center gap-3 px-4 py-2 rounded-full bg-background/10 border border-background/20 backdrop-blur-md"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5 }}
+            style={{ willChange: 'transform, opacity' }}
+            className="mb-8 inline-flex items-center gap-3 px-4 py-2 rounded-full bg-background/10 border border-background/20 md:backdrop-blur-md"
           >
             <AlertCircle className="w-4 h-4 text-background animate-pulse" />
             <span className="font-code text-[10px] md:text-xs font-bold text-background tracking-widest uppercase">
@@ -38,8 +42,9 @@ export default function ProblemSection() {
           <motion.h2 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            style={{ willChange: 'transform, opacity' }}
             className="font-headline text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tightest leading-[1] md:leading-[0.9] text-background"
           >
             Faturamento Real ou <br />
@@ -49,9 +54,11 @@ export default function ProblemSection() {
           {/* Problem Body */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-left">
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              style={{ willChange: 'transform, opacity' }}
               className="md:col-span-7"
             >
               <p className="text-xl md:text-2xl font-extrabold text-background leading-relaxed">
@@ -64,10 +71,12 @@ export default function ProblemSection() {
 
             <div className="md:col-span-5 flex flex-col gap-4">
               <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="p-6 rounded-2xl bg-background/5 border border-background/10 backdrop-blur-sm"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                style={{ willChange: 'transform, opacity' }}
+                className="p-6 rounded-2xl bg-background/5 border border-background/10 md:backdrop-blur-sm"
               >
                 <div className="flex items-center gap-4 mb-2">
                   <TrendingDown className="w-6 h-6 text-background/60" />
@@ -79,10 +88,12 @@ export default function ProblemSection() {
               </motion.div>
 
               <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, delay: 0.2 }}
-                className="p-6 rounded-2xl bg-background/5 border border-background/10 backdrop-blur-sm"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                style={{ willChange: 'transform, opacity' }}
+                className="p-6 rounded-2xl bg-background/5 border border-background/10 md:backdrop-blur-sm"
               >
                 <div className="flex items-center gap-4 mb-2">
                   <ZapOff className="w-6 h-6 text-background/60" />

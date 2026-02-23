@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { InstagramIcon } from '../icons/instagram-icon';
 import { Linkedin } from 'lucide-react';
 import { WhatsAppIcon } from '../icons/whatsapp-icon';
+import { motion } from 'framer-motion';
 
 const NivoTechLogo = () => (
     <div className="font-headline text-2xl font-extrabold tracking-tight text-foreground">
@@ -28,7 +29,14 @@ const FooterColumn = ({ title, children }: { title: string; children: React.Reac
 
 export default function Footer() {
   return (
-    <footer className="bg-background border-t border-primary/10">
+    <motion.footer 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+        style={{ willChange: 'transform, opacity' }}
+        className="bg-background border-t border-primary/10"
+    >
         <div className="container mx-auto px-4 py-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center md:text-left">
                 {/* Coluna 1: Identidade */}
@@ -81,6 +89,6 @@ export default function Footer() {
                 </div>
             </div>
         </div>
-    </footer>
+    </motion.footer>
   );
 }

@@ -18,7 +18,6 @@ import {
 } from "@/components/ui/sheet";
 import { InstagramIcon } from '../icons/instagram-icon';
 import { WhatsAppIcon } from '../icons/whatsapp-icon';
-import { usePathname } from 'next/navigation';
 
 const NivoTechLogo = () => (
     <Image 
@@ -171,6 +170,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
+      style={{ willChange: 'transform' }}
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
         isScrolled ? "top-4" : "top-0"
@@ -181,7 +181,7 @@ export default function Header() {
           className={cn(
             "flex items-center justify-between w-full rounded-full transition-all duration-300",
             isScrolled 
-              ? "h-[64px] px-6 bg-card/80 backdrop-blur-xl border border-primary/10 shadow-lg shadow-primary/5"
+              ? "h-[64px] px-6 bg-card/80 lg:backdrop-blur-xl border border-primary/10 shadow-lg shadow-primary/5"
               : "h-[80px] px-0"
           )}
         >
