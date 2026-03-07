@@ -21,7 +21,7 @@ import { WhatsAppIcon } from '../icons/whatsapp-icon';
 
 const NivoTechLogo = () => (
     <Image 
-      src="https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/Imagens/logonivofundoroxo.png"
+      src="https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/nivotech/Logos%20NivoTech/6.png"
       alt="NivoTech Logo"
       width={48}
       height={48}
