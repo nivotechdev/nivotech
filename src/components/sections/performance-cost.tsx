@@ -12,32 +12,48 @@ const projects = [
     category: "Agência de Marketing",
     image: "https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/nivotech/Captura%20de%20tela%202026-02-14%20151608.png",
     hint: "agencia quantix",
-    span: "md:col-span-8 md:row-span-2",
-    mobileHeight: "min-h-[350px] md:min-h-[450px]",
+    span: "md:col-span-6",
+    mobileHeight: "min-h-[350px]",
     priority: true,
+    link: "https://agenciaquantix.com.br/",
   },
   {
     title: "PlenaClin",
     category: "Clínica de Saúde",
     image: "https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/nivotech/Captura%20de%20tela%202026-02-21%20155006.png",
     hint: "clinica plenaclin",
-    span: "md:col-span-4 md:row-span-1",
-    mobileHeight: "min-h-[280px]",
+    span: "md:col-span-6",
+    mobileHeight: "min-h-[350px]",
     priority: false,
+    link: "https://plenaclinsaude.com.br/",
   },
   {
     title: "Dr. Marcos Guerra",
     category: "Profissional de Saúde",
     image: "https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/nivotech/Captura%20de%20tela%202026-02-21%20155820.png",
     hint: "dr marcos guerra",
-    span: "md:col-span-4 md:row-span-1",
-    mobileHeight: "min-h-[280px]",
+    span: "md:col-span-6",
+    mobileHeight: "min-h-[350px]",
     priority: false,
+    link: "https://drmarcosguerraortodontia.com.br/",
+  },
+  {
+    title: "Gandha Yoga",
+    category: "Espaço para Yoga",
+    image: "https://whfdrrdozhyavyflgaxo.supabase.co/storage/v1/object/public/nivotech/Captura%20de%20tela%202026-06-02%20124510.png",
+    hint: "gandha yoga",
+    span: "md:col-span-6",
+    mobileHeight: "min-h-[350px]",
+    priority: false,
+    link: "https://gandhayoga.com.br/",
   }
 ];
 
 const ProjectCard = ({ project, index }: { project: typeof projects[0], index: number }) => (
-  <motion.div
+  <motion.a
+    href={project.link}
+    target="_blank"
+    rel="noopener noreferrer"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-50px" }}
@@ -57,11 +73,11 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         priority={project.priority}
-        className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+        className="object-cover group-hover:scale-105 transition-all duration-700 ease-out"
         style={{ willChange: 'transform, opacity' }}
         data-ai-hint={project.hint}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-primary/5 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
     </div>
 
     <div className="relative z-10 p-6 sm:p-10">
@@ -79,7 +95,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
         </div>
       </div>
     </div>
-  </motion.div>
+  </motion.a>
 );
 
 export default function PerformanceCostSection() {

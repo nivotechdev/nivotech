@@ -84,7 +84,7 @@ export default function Footer() {
             {/* Copyright Bar */}
             <div className="mt-16 pt-8 border-t border-border text-xs text-muted-foreground">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center">
-                    <p>© 2026 NIVOTECH. TODOS OS DIREITOS RESERVADOS. | CNPJ: XX.XXX.XXX/0001-XX | Caxias do Sul/RS.</p>
+                    <p>© 2026 NIVOTECH. TODOS OS DIREITOS RESERVADOS. | Caxias do Sul/RS.</p>
                     <p className="font-code text-primary/70 text-xs uppercase tracking-widest">High Performance Certified</p>
                 </div>
             </div>
